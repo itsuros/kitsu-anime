@@ -28,3 +28,9 @@ export const localeLoaders = {
   zh: () => import('@/locales/zh.json'),
   zh_tw: () => import('@/locales/zh_tw.json')
 }
+
+// A production-style overlay of a translated language: the partial messages
+// load with the language they sit on and are merged on top of it.
+export const variantLoaders = {
+  ja_2d: { base: 'ja', load: () => import('@/locales/ja_2d.json') }
+}

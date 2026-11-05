@@ -18,7 +18,7 @@ import 'moment/locale/ru'
 import 'moment/locale/zh-cn'
 import 'moment/locale/zh-tw'
 
-import i18n, { loadLocaleMessages } from '@/lib/i18n'
+import { applyLocale } from '@/lib/i18n'
 
 // The dates sent to the API are formatted with moment, and Zou rejects the
 // Persian digits of the fa locale: print Latin ones (Persian ones still parse).
@@ -35,32 +35,31 @@ const LOCALE_MAP = {
 // Reactive, Intl-safe formatting code for the active language ('en', 'zh-tw', …).
 export const localeCode = ref('en')
 
-// Latest language asked for; guards against an older locale chunk landing
-// after a newer switch and flipping the UI back.
-let pendingLanguage = null
+/**
+ * Language and moment code of a user locale ('fr_FR', 'zh_Hant_TW', …).
+ * @param {string} locale
+ */
+const resolveLocaleCodes = locale => {
+  const fallback = locale?.substring(0, 2) || 'en'
+  return LOCALE_MAP[locale] || { language: fallback, code: fallback }
+}
+
+export const languageOf = locale => resolveLocaleCodes(locale).language
 
 export default {
   /**
    * Set the locale for the application (vue-i18n + moment.js). Translation
    * chunks load on demand, so the vue-i18n locale flips once the messages
-   * are registered; the returned promise resolves at that point.
+   * are registered; the returned promise resolves at that point. The
+   * vocabulary of the open production style stays.
    * @param {string} locale
    */
   setLocale(locale) {
-    const fallback = locale?.substring(0, 2) || 'en'
-    const { language, code } = LOCALE_MAP[locale] || {
-      language: fallback,
-      code: fallback
-    }
+    const { language, code } = resolveLocaleCodes(locale)
 
     moment.locale(code)
     localeCode.value = code
 
-    pendingLanguage = language
-    return loadLocaleMessages(language).then(() => {
-      if (pendingLanguage === language) {
-        i18n.global.locale.value = language
-      }
-    })
+    return applyLocale(language)
   }
 }

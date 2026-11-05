@@ -1,10 +1,10 @@
 // @vitest-environment node
 
 import moment from 'moment-timezone'
-import lang, { localeCode } from '@/lib/lang'
+import lang, { languageOf, localeCode } from '@/lib/lang'
 import timezone from '@/lib/timezone'
 
-import i18n from '@/lib/i18n'
+import i18n, { applyLocale } from '@/lib/i18n'
 import store from '@/store'
 
 class ColorHash {
@@ -37,6 +37,35 @@ describe('lang', () => {
     const second = lang.setLocale('de_DE')
     await Promise.all([first, second])
     expect(i18n.global.locale.value).toEqual('de')
+  })
+
+  // The Japanese of a 2D production reads the overlay, and a language switch
+  // keeps the style of the production that is open.
+  test('setLocale reads the Japanese 2D vocabulary by default', async () => {
+    await applyLocale('en', null)
+    await lang.setLocale('ja_JP')
+    expect(i18n.global.locale.value).toEqual('ja_2d')
+    expect(i18n.global.t('shots.title')).toEqual('カット')
+  })
+
+  test('setLocale keeps the style of the open production', async () => {
+    await applyLocale('en', '3d')
+    await lang.setLocale('ja_JP')
+    expect(i18n.global.locale.value).toEqual('ja')
+    expect(i18n.global.t('shots.title')).toEqual('ショット')
+
+    await applyLocale('ja', '2d')
+    await lang.setLocale('en_US')
+    await lang.setLocale('ja_JP')
+    expect(i18n.global.locale.value).toEqual('ja_2d')
+    await applyLocale('en', null)
+  })
+
+  test('languageOf maps the locale of the user to a language', () => {
+    expect(languageOf('ja_JP')).toEqual('ja')
+    expect(languageOf('zh_Hant_TW')).toEqual('zh_tw')
+    expect(languageOf('zh_Hans_CN')).toEqual('zh')
+    expect(languageOf(undefined)).toEqual('en')
   })
 
   test('localeCode tracks the active language with an Intl-safe code', () => {

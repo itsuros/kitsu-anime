@@ -34,7 +34,8 @@ import auth from '@/lib/auth'
 import crisp from '@/lib/crisp'
 import { isNewShotInLoadedScope } from '@/lib/episodes'
 import errors from '@/lib/errors'
-import i18n from '@/lib/i18n'
+import { applyLocale } from '@/lib/i18n'
+import { languageOf } from '@/lib/lang'
 import { getProductionRole } from '@/lib/people'
 import localPreferences from '@/lib/preferences'
 import { isPreviewFileStatus } from '@/lib/preview'
@@ -735,18 +736,11 @@ watch(
 
 watch(
   currentProduction,
-  () => {
-    const userLocale = (user.value?.locale || 'en').substring(0, 2)
-    if (userLocale !== 'en') return
-    const variant = currentProduction.value?.production_style
-    if (['nft', 'video-game'].includes(variant)) {
-      i18n.global.fallbackWarn = false
-      i18n.global.locale.value = `en_${variant}`
-    } else {
-      i18n.global.fallbackWarn = true
-      i18n.global.locale.value = 'en'
-    }
-  },
+  () =>
+    applyLocale(
+      languageOf(user.value?.locale),
+      currentProduction.value?.production_style
+    ),
   { immediate: true }
 )
 

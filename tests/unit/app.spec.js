@@ -1145,6 +1145,65 @@ describe('App', () => {
     })
   })
 
+  // Japanese speakers read the vocabulary of Japanese animation on the 2D
+  // productions, the default 2d3d included: the shots are cuts there.
+  describe('Japanese 2D overlay', () => {
+    afterEach(() => {
+      i18n.global.locale.value = 'en'
+      i18n.global.fallbackWarn = true
+    })
+
+    it('follows the style of the current production', async () => {
+      await loadLocaleMessages('ja_2d')
+      const production = ref({ id: 'production-1', production_style: '2d3d' })
+      await mountApp({
+        getters: {
+          currentProduction: () => production.value,
+          user: () => ({ id: 'user-1', locale: 'ja_JP' })
+        }
+      })
+
+      expect(i18n.global.locale.value).toBe('ja_2d')
+
+      production.value = { id: 'production-2', production_style: '3d' }
+      await flushPromises()
+
+      expect(i18n.global.locale.value).toBe('ja')
+
+      production.value = { id: 'production-3', production_style: '2dpaper' }
+      await flushPromises()
+
+      expect(i18n.global.locale.value).toBe('ja_2d')
+    })
+
+    it('reads a production without a style as 2d3d', async () => {
+      await loadLocaleMessages('ja_2d')
+      await mountApp({
+        getters: {
+          currentProduction: () => ({ id: 'production-1' }),
+          user: () => ({ id: 'user-1', locale: 'ja_JP' })
+        }
+      })
+
+      expect(i18n.global.locale.value).toBe('ja_2d')
+    })
+
+    it('leaves the language of a user who reads another one', async () => {
+      await loadLocaleMessages('zh_tw')
+      await mountApp({
+        getters: {
+          currentProduction: () => ({
+            id: 'production-1',
+            production_style: '2d3d'
+          }),
+          user: () => ({ id: 'user-1', locale: 'zh_Hant_TW' })
+        }
+      })
+
+      expect(i18n.global.locale.value).toBe('zh_tw')
+    })
+  })
+
   // The config answers after the first render: the theme the page starts
   // with comes from the storage.
   describe('dark theme', () => {

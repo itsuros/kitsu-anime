@@ -286,6 +286,27 @@ Rules:
 - **Every change to `en.js` or to an overlay ends with `node scripts/check-locale-overlays.js`**, rerun until it prints nothing. It lists the keys the remap changes (a shot / sequence / episode word, or a code such as `SH01`) with no override, the dead and identical overrides, and the overrides that no longer read like `en.js` once remapped, each with the expected value: a new key needs its overrides, and a copy edit of an `en.js` sentence goes to its overrides, in the same commit. Its remap table and its list of deliberate wordings are the reference.
 - Only English has these overlays. The other locales (`fr.json`, …) translate `en.js` and have no production-type variant.
 
+### Japanese 2D overlay (`ja_2d`)
+
+Japanese animation studios do not use the CG vocabulary of `ja.json`. `src/locales/ja_2d.json` is a **partial overlay merged on top of `ja.json`** (it nests under `default` like the other JSON files). `resolveLocale()` in `src/lib/i18n.js` picks it when the language is `ja` and the production style is `2d`, `2dpaper`, `2d3d` or unset; every other style reads plain `ja`. For Japanese this replaces the Blender rule above.
+
+| `ja.json` | `ja_2d` |
+|-----------|---------|
+| ショット | カット |
+| エピソード | 話数 |
+| シーケンス | シーン |
+| エディット | 編集 |
+| タスクタイプ | 工程 |
+| ブレイクダウン | 香盤表 |
+| プロダクション | 作品 |
+
+アセット, フレーム and キャスティング stay, and so does タイムシート: Kitsu's timesheet logs working hours, the animation X-sheet has the same name.
+
+- Keep **only** the keys whose wording differs from `ja.json`, with the same `|` segments and `{placeholders}`.
+- A term left in a katakana compound stays (スナップショット keeps ショット).
+- Not in `localeLoaders` on purpose: `parity.spec.js` checks the languages only. `tests/unit/locales/ja2d.spec.js` fails on a `ja.json` key that still reads a replaced term, which is what an upstream sync brings: add the key to `ja_2d.json`.
+- `applyLocale(language, style)` remembers the style, so a language switch keeps the vocabulary of the open production.
+
 ## CSS / SCSS
 
 ### Scoped styles

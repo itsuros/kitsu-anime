@@ -1,0 +1,416 @@
+{
+  "default": {
+    "assets": {
+      "empty_list": "この作品にはアセットがありません。作成しますか？",
+      "empty_list_read_only": "この作品にはアセットがありません。",
+      "no_cast_in": "このアセットはどのカットにもキャスティングされていません。",
+      "fields": {
+        "episode": "話数",
+        "production": "作品"
+      },
+      "only_current_episode": "現在の話数のみ",
+      "casted_in_shots": "{count} カットでキャスティング | {count} カットでキャスティング",
+      "show_linked": "香盤表のアセットを表示"
+    },
+    "asset_types": {
+      "include_all": "アセットのすべての工程を含む"
+    },
+    "breakdown": {
+      "title": "香盤表",
+      "remove": {
+        "confirm": "話数からアセットを外す",
+        "text": "選択した話数からこのアセットを外すと、配下のすべてのカットからも外れます。削除してもよろしいですか？"
+      }
+    },
+    "custom_actions": {
+      "entity_types": {
+        "shot": "カット",
+        "sequence": "シーン",
+        "edit": "編集",
+        "episode": "話数"
+      }
+    },
+    "entities": {
+      "thumbnails": {
+        "shots_pattern": "\"シーン名 カット名\" 例: SQ01_SH01.",
+        "select_task_type": "工程を選択",
+        "edits_pattern": "\"編集名\" 例: Trailer.",
+        "edits_tvshow_pattern": "\"話数名 編集名\" 例: E01_Trailer.",
+        "explanation": "サムネイルは、アップロードしたファイルを新しいプレビューとして登録し、そこから設定されます。まず、どの工程にプレビューを作成するかを選択してください。"
+      },
+      "preview_files": {
+        "task_type": "工程"
+      },
+      "output_files": {
+        "task_type": "工程"
+      }
+    },
+    "episodes": {
+      "all_hidden": "すべての話数が非表示になっています。",
+      "edit_error": "話数の保存中にエラーが発生しました。類似の名前の話数がないか確認してください。",
+      "delete_error": "話数の削除中にエラーが発生しました。関連データが存在する可能性があります。この話数にリンクされたシーンがないことを確認してください。",
+      "delete_text": "{name} をデータベースから削除してもよろしいですか？関連するすべてのカットとプレビューも削除されます。確認のため、下に話数名を入力してください。",
+      "edit_title": "話数を編集",
+      "empty_list": "この作品には話数がありません。作成しますか？",
+      "empty_list_read_only": "この作品には話数がありません。",
+      "new_episode": "話数を作成",
+      "new_episodes": "話数を作成",
+      "number": "話数 | 話数",
+      "title": "話数",
+      "no_casting": "話数のキャスティングが空です。",
+      "restore_error": "この話数の復元中にエラーが発生しました。",
+      "tasks": "話数のタスク",
+      "stats_title": "話数統計"
+    },
+    "keyboard": {
+      "plaltright": "次のカットの最初のフレームへ移動",
+      "plaltleft": "前のカットの最後のフレームへ移動"
+    },
+    "main": {
+      "go_productions": "作品に戻る",
+      "production": "作品",
+      "csv": {
+        "preview_episode_name": "話数名"
+      },
+      "all_edits": "すべての編集",
+      "all_shots": "すべてのカット",
+      "edl": {
+        "explanation": "OpenTimelineIO 対応の一般的なファイル（otio、fcp_xml、fcpx_xml、edl）をインポートできます。記載されたフレーム範囲・開始フレーム・最終フレームに従ってカットが作成または更新されます。フレームは 0 起点です。"
+      }
+    },
+    "menu": {
+      "delete_shots": "カットを削除",
+      "delete_edits": "編集を削除"
+    },
+    "news": {
+      "task_type": "工程"
+    },
+    "notifications": {
+      "no_notifications": "現在の作品に関する通知はありません。"
+    },
+    "people": {
+      "empty_team": "作品チームに誰も登録されていません。",
+      "project_role": "作品ロール",
+      "role": {
+        "manager": "作品マネージャー"
+      },
+      "self_role_downgrade_confirm": "自分のロールを {currentRole} から {newRole} に下げますか？管理者権限はすぐに失われ、作品の作成やユーザー管理ができなくなります。ロールを戻せるのは他の {currentRole} だけです。",
+      "import_from_production": "別の作品からチームをインポート"
+    },
+    "playlists": {
+      "add_shots": "カットを追加",
+      "add_sequence": "シーン全体を追加",
+      "add_episode": "話数全体を追加",
+      "apply_task_type_change": "すべてのエンティティについて、指定した工程の最新リビジョンを設定します。",
+      "change_task_type_error": "工程の変更中にエラーが発生しました。",
+      "no_playlist": "現在、この作品または話数にはプレイリストがありません。",
+      "select_task_type": "すべてのエンティティの工程を変更",
+      "actions": {
+        "change_task_type": "工程を変更",
+        "split_screen": "他の工程と比較"
+      },
+      "filter_task_type": "工程でフィルター",
+      "add_sequences": "シーンを追加",
+      "add_edits": "編集を追加",
+      "add_episodes": "話数を追加",
+      "update_to_latest_version_help": "各エンティティの現在の工程を保ったまま、最新のリビジョンを設定します。"
+    },
+    "productions": {
+      "clients": {
+        "access_description": "この設定は、プレビューアカウントを含め、この作品のクライアントに何を見せるかを決めます。",
+        "access_stats_description": "クライアントはこの作品の統計ページを開けます。",
+        "access_task_list": "アセット、カット、編集のリスト",
+        "access_task_list_description": "クライアントはアセット、カット、編集のリストとそのページを開けます。",
+        "access_task_list_hint": "リストはクライアントに表示されません。下の工程は引き続き統計に適用されます。",
+        "access_task_types_description": "チェックされていない工程は、クライアントに列が表示されません。",
+        "access_task_types_title": "クライアントに表示する工程",
+        "delete_confirm": "この作品のプレビューアカウントを削除しますか？",
+        "metadata_description": "チェックしたメタデータ列は、アセットとカットの一覧でクライアントに表示されます。",
+        "metadata_empty": "この作品にはメタデータがありません。",
+        "statuses_empty": "この作品にはタスクステータスがありません。",
+        "statuses_overridden": "この作品用に設定",
+        "team_description": "この作品のチームでクライアントのロールを持つメンバーです。"
+      },
+      "current": "選択中の作品",
+      "delete_text": "{name} をデータベースから削除してもよろしいですか？確認のため、下に作品名を入力してください。",
+      "delete_error": "作品の削除中にエラーが発生しました。関連データが存在する可能性があります。この作品にリンクされたタスク、カット、アセットがないことを確認してください。Kitsu では作品の削除は許可されていません。作品を表示したくない場合は、代わりに閉じることができます。",
+      "edit_title": "作品を編集",
+      "new_production": "作品を作成",
+      "number": "作品 | 作品",
+      "open_productions": "マイ作品",
+      "settings_menu": {
+        "production": "作品"
+      },
+      "title": "作品",
+      "home": {
+        "create_new": "作品を作成",
+        "empty": "進行中の作品がありません。新しく作成しますか？",
+        "no_prod_for_client": "作品にアクセスできません。アクセス権を取得するには、管理者にお問い合わせください。",
+        "studio_productions": "{studio} の作品",
+        "title": "マイ作品",
+        "welcome_text": "ここは {studio} が作品を共有する場所です。各作品の進捗を追い、最新のプレイリストを確認し、フィードバックを残してください。"
+      },
+      "fields": {
+        "nb_episodes": "話数",
+        "episode_span": "話数間隔",
+        "is_frame_in_numbering": "プレイヤーのフレーム番号をカットの開始フレームから表示する"
+      },
+      "metadata": {
+        "delete_text": "この列と、この作品のすべてのアセットの関連データを削除してもよろしいですか？",
+        "applies_to_all_projects": "この列はリスト内のすべての作品に追加されます。値は作品ごとに設定できます。",
+        "delete_list_column_text": "列「{name}」を、保存された値も含めてすべての作品から削除します。続行しますか？",
+        "delete_task_text": "この列と、この工程のすべてのタスクの関連データを削除してもよろしいですか？"
+      },
+      "type": {
+        "shots": "カットのみ"
+      },
+      "edit_error": "作品の編集中にエラーが発生しました。サポートチームまでお問い合わせください。",
+      "creation": {
+        "add_shots": "カットを追加（任意）",
+        "add_shots_description": "使用するカットを追加またはインポートします。",
+        "create_production": "作品を作成",
+        "error": "作品の作成中にエラーが発生しました",
+        "errorImportingAssets": "アセットのインポート中にエラーが発生しました（作品は作成されています）。",
+        "errorImportingShots": "カットのインポート中にエラーが発生しました（作品は作成されています）。",
+        "error_setup": "作品の設定中にエラーが発生しました（作品は作成されています）。",
+        "explanation_date": "作品のスケジュールを設定します。",
+        "explanation_type": "「番組」を選択すると、作品は話数ごとに分割されます。",
+        "give_a_name": "作品名を入力",
+        "give_a_name_description": "作品の名前を設定します。",
+        "import_shots_button": "カットをインポート",
+        "new_project": "新規作品",
+        "open_production": "作品を開く",
+        "placeholder_name": "作品名",
+        "select_asset_task_type": "アセットの工程を選択",
+        "select_shot_task_type": "カットの工程を選択",
+        "select_shot_task_type_description": "カットの制作工程を定義します。",
+        "select_task_status_description": "この作品で使用するタスクステータスを定義します。",
+        "shots_to_import": "インポートするカット",
+        "choose_template": "作品テンプレートを適用（任意）",
+        "choose_template_description": "テンプレートを選択すると、工程、タスクステータス、アセットタイプ、メタデータ、設定があらかじめ入力されます。最初から設定する場合はテンプレートなしに設定してください。"
+      },
+      "homepage": {
+        "shots": "カット",
+        "sequences": "シーン"
+      },
+      "video": {
+        "frame_in_description": "プレイヤーのカウンターは 0 ではなくカットの開始フレームから始まります。",
+        "task_type_ld_bitrate_max": "最大: 工程のHDビットレート"
+      }
+    },
+    "settings": {
+      "production": {
+        "empty_list": "まだ何も追加されていないため、登録されているすべての項目がこの作品で使用できます。特定の項目だけに限定したい場合は、ここに追加してください。",
+        "empty_automation_list": "この作品に設定された自動化はありません。",
+        "empty_board": "作品にタスクステータスがまだ追加されていません。先に「タスクステータス」タブで追加すると、カンバンボードに表示するステータスをここで設定できます。"
+      },
+      "import_from_production": "別の作品からインポート"
+    },
+    "task_status": {
+      "production_description": "この作品のタスクに設定できるのはこれらのステータスだけです。",
+      "help": {
+        "entities": "アセット、カット、シーン、…"
+      }
+    },
+    "task_types": {
+      "delete_error": "工程の削除中にエラーが発生しました。関連データが存在する可能性があります。この工程にリンクされたタスクがないことを確認してください。",
+      "delete_blocked_by_links": "この工程は、まだ一部の作品のスケジュールまたはワークフローで使用されています。切り離すと、すべての作品でそのスケジュールの日付が削除されます。",
+      "delete_blocked_by_tasks": "この工程を使用しているタスクがまだあります。削除する前に、それらを削除するか別の工程に変更してください。",
+      "edit_title": "工程を編集",
+      "create_error": "工程の作成中にエラーが発生しました。類似の名前の工程がないか確認してください。",
+      "new_task_type": "工程を作成",
+      "number": "工程 | 工程",
+      "title": "工程",
+      "no_task_types": "このエンティティタイプの工程はありません",
+      "add_task_type_placeholder": "+ 工程の追加",
+      "production_description": "この作品のタスクは、ここに表示された工程のみを使用できます。",
+      "remaining_tasks": "{name} には、この作品にまだ {count} 件のタスクがあります。工程を外しても、タスクは削除されません。 | {name} には、この作品にまだ {count} 件のタスクがあります。工程を外しても、タスクは削除されません。",
+      "remove_error": "工程を外せませんでした。もう一度お試しください。",
+      "remove_title": "工程を外す",
+      "select_task_type": "工程を選択…",
+      "add_task_type_to_library": "工程をライブラリに追加"
+    },
+    "sequences": {
+      "all_hidden": "すべてのシーンが非表示になっています。",
+      "all_sequences": "すべてのシーン",
+      "edit_error": "シーンの保存中にエラーが発生しました。類似の名前のシーンがないか確認してください。",
+      "delete_text": "{name} をデータベースから削除してもよろしいですか？関連するすべてのカットとプレビューも削除されます。確認のため、下にシーン名を入力してください。",
+      "delete_error": "シーンの削除中にエラーが発生しました。関連データが存在する可能性があります。このシーンにリンクされたカットがないことを確認してください。",
+      "edit_title": "シーンを編集",
+      "empty_list": "この作品にはシーンがありません。作成しますか？",
+      "empty_list_read_only": "この作品にはシーンがありません。",
+      "new_sequence": "シーンを作成",
+      "new_sequences": "シーンを作成",
+      "number": "シーン | シーン",
+      "title": "シーン",
+      "no_casting": "シーンのキャスティングが空です。",
+      "stats_title": "シーン統計"
+    },
+    "schedule": {
+      "apply_to_prod": "作品に適用",
+      "apply_to_prod_confirm": "このスケジュールバージョンを現在の作品に適用してもよろしいですか？タスクの現在の日程は上書きされます。",
+      "apply_to_prod_error": "現在の作品へのスケジュールバージョンの適用中にエラーが発生しました。",
+      "assign_help_entity_group": "シーン、アセットタイプ、または話数を選ぶと、計画対象のエンティティが下に一覧表示されます。除外するものは削除してください。工程の横のボタンは、すでに割り当て済みのエンティティも一覧表示します。",
+      "assign_help_task_type": "工程を選ぶと、そのタイプのタスクがまだ誰にも割り当てられていないシーン、カット、アセットが一覧表示されます。",
+      "drop_forbidden_role": "この作品でのアサイン権限がありません",
+      "drop_forbidden_task_type": "自分の部門外の工程",
+      "drop_forbidden_team": "作品のチームに属していません",
+      "plan_sequence_tasks": "このシーンのタスクをスケジュール",
+      "select_task_type": "工程を選択"
+    },
+    "quota": {
+      "count": "カット",
+      "explanation_feedback": "カットは最初のフィードバック要求時に完了とみなされます。そのフレーム数がその日のクォータに追加されます。",
+      "explanation_done": "カットは最後の承認時に完了とみなされます。そのフレーム数がその日のクォータに追加されます。",
+      "explanation_weighted": "カットは最初のフィードバック要求時に完了とみなされます。フレーム数は完了日にまとめて計上せず、タイムシートの作業時間に応じて、作業した日に日割りで計上されます。\n\n時間が記録されていない場合、以下が想定されます:\n* タスクは最初のステータス変更で作業中になった時に開始。\n* タスクはフィードバック要求が行われた日に完了。\n* 完了したフレームは開始日と終了日の間のすべての営業日に均等に配分。",
+      "explanation_weighteddone": "カットは最後の承認時に完了とみなされます。フレーム数は完了日にまとめて計上せず、タイムシートの作業時間に応じて、作業した日に日割りで計上されます。\n\n時間が記録されていない場合、以下が想定されます:\n* タスクは最初のステータス変更で作業中になった時に開始。\n* タスクは承認された日に完了。\n* 完了したフレームは開始日と終了日の間のすべての営業日に均等に配分。"
+    },
+    "shots": {
+      "casting": "カットのキャスティング",
+      "delete_error": "カットの削除中にエラーが発生しました。関連データが存在する可能性があります。このカットにリンクされたタスクがないことを確認してください。",
+      "edit_success": "カット {name} を正常に編集しました。",
+      "edit_fail": "作成または編集に失敗しました。同じシーン内に同名のカットが既に存在しないか確認してください。",
+      "edit_title": "カットを編集",
+      "empty_list": "この作品にはカットがありません。作成しますか？",
+      "empty_list_read_only": "この作品にはカットがありません。",
+      "episodes": "話数",
+      "history": "カット値の履歴",
+      "new_shot": "カットを作成",
+      "new_shots": "カットを作成",
+      "no_casting": "カットのキャスティングが空です。",
+      "number": "カット | カット",
+      "new_success": "カット {name} を正常に作成しました。",
+      "restore_error": "このカットの復元中にエラーが発生しました。",
+      "sequences": "シーン",
+      "tasks": "カットタスク",
+      "title": "カット",
+      "fields": {
+        "episode": "話数",
+        "production": "作品",
+        "sequence": "シーン"
+      },
+      "delete_for_selection": "選択したカットを削除 | {nbSelectedShots} 件のカットを削除",
+      "multiple_delete_error": "カットの削除中にエラーが発生しました。関連データが存在する可能性があります。選択したカットにリンクされたタスクがないことを確認してください。",
+      "creation_explanation": "カットを追加するには、先に話数とシーンを作成します。まず「話数」列で名前を入力して「追加」し、作成した話数を選択してください。同じ手順で「シーン」列にシーンを追加して選択し、最後に「カット」列でカット名を入力して「追加」します。「番組」以外の作品では「話数」列は表示されないため、シーンから作成してください。",
+      "get_frames_from_previews_description": "工程を選択すると、その工程の最新の動画プレビューの長さから、各カットのフレーム数を計算して設定します。",
+      "wrong_file_duration": "アップロードされた動画ファイルの1つの長さが現在のカットの予想される長さと一致しません。",
+      "delete_for_selection_hard_text": "選択したカットを完全に削除してもよろしいですか？関連するすべてのタスク、コメント、プレビューも削除されます。下に「削除」と入力して確認してください。"
+    },
+    "statistics": {
+      "shots": "カット",
+      "episode_status": "話数ステータス"
+    },
+    "tasks": {
+      "create_tasks_shot": "表示中のカットにタスクを追加",
+      "create_tasks_shot_explanation": "この作品のすべてのカットに、選択した工程のタスクを作成します。続行しますか？",
+      "create_tasks_asset_explanation": "この作品のすべてのアセットに、選択した工程のタスクを作成します。続行しますか？",
+      "delete_all_text": "{name} のすべてのタスクを削除してもよろしいですか？確認のため、下に工程名を入力してください。",
+      "delete_all_error": "指定された工程のすべてのタスクの削除に失敗しました。",
+      "fields": {
+        "production": "作品",
+        "sequence": "シーン",
+        "no_task_type": "工程なし"
+      },
+      "for_project": "作品全体",
+      "full_task_type_names": "工程を省略せずに表示",
+      "create_tasks_edit": "表示中の編集にタスクを追加",
+      "create_tasks_edit_explanation": "この作品のすべての編集に、選択した工程のタスクを作成します。続行しますか？",
+      "create_tasks_episode": "表示中の話数にタスクを追加",
+      "create_tasks_episode_explanation": "この作品のすべての話数に、選択した工程のタスクを作成します。続行しますか？",
+      "create_tasks_sequence": "表示中のシーンにタスクを追加",
+      "create_tasks_sequence_explanation": "この作品のすべてのシーンに、選択した工程のタスクを作成します。続行しますか？",
+      "create_tasks_disclaimer": "工程が見つからない場合は、作品設定の工程に登録されているか確認してください。"
+    },
+    "timesheets": {
+      "export_timespents": "進行中の作品の作業時間を一覧としてエクスポート"
+    },
+    "logs": {
+      "preview_files": {
+        "production": "作品",
+        "task_type_id": "工程"
+      }
+    },
+    "edits": {
+      "all_edits": "すべての編集",
+      "creation_explanation": "編集ファイルをアップロードして新しい編集を作成",
+      "edit_error": "編集の保存中にエラーが発生しました。類似の名前の編集がないか確認してください。",
+      "delete_error": "編集の削除中にエラーが発生しました。関連データが存在する可能性があります。",
+      "delete_for_selection": "選択した編集を削除 | {nbSelectedEdits} 件の編集を削除",
+      "edit_title": "編集を変更",
+      "empty_list": "この作品には編集がありません。作成しますか？",
+      "empty_list_read_only": "この作品には編集がありません。",
+      "new_edit": "編集を作成",
+      "new_edits": "編集を作成",
+      "number": "編集 | 編集",
+      "title": "編集",
+      "fields": {
+        "episode": "話数"
+      },
+      "history": "編集の値の履歴",
+      "restore_error": "この編集の復元中にエラーが発生しました。",
+      "delete_for_selection_error": "選択した編集の削除中にエラーが発生しました。",
+      "delete_for_selection_hard_text": "選択した編集を完全に削除してもよろしいですか？関連するすべてのタスク、コメント、プレビューも削除されます。下に「削除」と入力して確認してください。",
+      "multiple_delete_error": "編集の削除中にエラーが発生しました。関連データが存在する可能性があります。選択した編集にリンクされたタスクがないことを確認してください。"
+    },
+    "status_automations": {
+      "delete_error": "ステータス自動化の削除中にエラーが発生しました。この自動化を使用している作品が残っている可能性があります。各作品の設定から先に外してください。",
+      "wrong_automation": "この自動化は上流の工程を対象にしているため動作しません。無限ループを防ぐため、Kitsu では上流方向への自動化を許可していません。",
+      "fields": {
+        "in_task_type": "工程",
+        "out_task_type": "適用対象工程"
+      },
+      "entity_types": {
+        "shot": "カット",
+        "sequence": "シーン",
+        "episode": "話数",
+        "edit": "編集"
+      }
+    },
+    "team_schedule": {
+      "busy": "別の作品で作業中",
+      "empty": "現在のフィルターに一致するユーザーがいません。スタジオ、部門、作品のフィルターを広げてみてください。",
+      "no_assignment_role": "この作品ではタスクをアサインできません。",
+      "no_department_task_type": "作品フィルターに一致する自分の部門の工程がありません。"
+    },
+    "backgrounds": {
+      "production_description": "この作品の 3D プレビュー用にプレイヤーで選べる 3D 背景です。"
+    },
+    "board": {
+      "empty": "ボードに表示できるものがありません。進行中のタスクがないか、検索結果が0件か、作品設定であなたのロール向けのタスクステータスが有効になっていない可能性があります。"
+    },
+    "concepts": {
+      "empty": "この作品にはコンセプトがありません"
+    },
+    "library": {
+      "import_from_production": "作品全体をインポート",
+      "no_open_productions": "進行中の作品がありません",
+      "select_production": "作品を選択",
+      "fields": {
+        "production": "作品"
+      }
+    },
+    "budget": {
+      "no_budget_found": "この作品には予算がありません。作成しますか？",
+      "no_budget_entries_found": "この作品の予算項目はありません。作成しますか？"
+    },
+    "project_templates": {
+      "duplicate_name": "この名前の作品テンプレートはすでに存在します。",
+      "edit_title": "作品テンプレートを編集",
+      "empty": "作品テンプレートはまだありません。作成すると新しい作品をすばやく設定できます。",
+      "new_project_template": "作品テンプレートを追加",
+      "number": "作品テンプレート | 作品テンプレート",
+      "tabs": {
+        "task_types": "工程"
+      },
+      "metadata_explanation": "このテンプレートから作成された作品に追加されるメタデータ列。",
+      "backgrounds_explanation": "このテンプレートから作成された作品の 3D プレビュー用にプレイヤーで選べる 3D 背景です。",
+      "clients": {
+        "access_description": "これらの設定は、このテンプレートから作成された作品でクライアントに表示される内容を決めます（プレビューアカウントを含む）。",
+        "access_stats_description": "クライアントは作品の統計ページを開けます。"
+      }
+    },
+    "share": {
+      "no_status_available": "この作品にはタスクステータスが設定されていません。"
+    }
+  }
+}
