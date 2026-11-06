@@ -19,7 +19,7 @@ const flatten = (messages, prefix = '') =>
 // the tail of a longer katakana word, such as スナップショット (snapshot).
 const REPLACED_TERMS = [
   'ブレイクダウン',
-  'タスクタイプ',
+  'キャスティング',
   'シーケンス',
   'エピソード',
   'ショット',
@@ -105,20 +105,47 @@ describe('ja_2d overlay', () => {
       sequences: merged('sequences.title'),
       edits: merged('edits.title'),
       breakdown: merged('breakdown.title'),
-      productions: merged('productions.title')
+      productions: merged('productions.title'),
+      projectRole: merged('people.project_role'),
+      manager: merged('people.role.manager')
     }).toEqual({
       shots: 'カット',
       episodes: '話数',
       sequences: 'シーン',
       edits: '編集',
       breakdown: '香盤表',
-      productions: '作品'
+      productions: 'プロジェクト',
+      projectRole: 'プロジェクトロール',
+      manager: 'プロジェクトマネージャー'
+    })
+  })
+
+  // The casting of a shot reads as the assets in use, not as a film casting.
+  it('words the casting as the assets in use', () => {
+    const merged = key => overlay.get(key) ?? base.get(key)
+    expect({
+      label: merged('main.label.casting'),
+      shot: merged('shots.casting'),
+      emptyShot: merged('shots.no_casting'),
+      castIn: merged('assets.casted_in_shots'),
+      notCast: merged('assets.no_cast_in'),
+      empty: merged('breakdown.empty')
+    }).toEqual({
+      label: '使用中',
+      shot: 'カットの使用中アセット',
+      emptyShot: 'カットの使用中アセットが空です。',
+      castIn: '{count} カットで使用中 | {count} カットで使用中',
+      notCast: 'このアセットはどのカットでも使用されていません。',
+      empty: '使用中アセットなし'
     })
   })
 
   it('leaves the terms kept as they are', () => {
     const merged = key => overlay.get(key) ?? base.get(key)
-    expect(merged('assets.title')).toBe(base.get('assets.title'))
+    ;['assets.title', 'task_types.title', 'task_types.number'].forEach(key => {
+      expect(merged(key)).toBe(base.get(key))
+    })
     expect(merged('assets.title')).toBe('アセット')
+    expect(merged('task_types.title')).toBe('タスクタイプ')
   })
 })

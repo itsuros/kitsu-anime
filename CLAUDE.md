@@ -296,11 +296,11 @@ Japanese animation studios do not use the CG vocabulary of `ja.json`. `src/local
 | エピソード | 話数 |
 | シーケンス | シーン |
 | エディット | 編集 |
-| タスクタイプ | 工程 |
 | ブレイクダウン | 香盤表 |
-| プロダクション | 作品 |
+| プロダクション | プロジェクト |
+| キャスティング | 使用中 / 使用中アセット (reworded key by key) |
 
-アセット, フレーム and キャスティング stay, and so does タイムシート: Kitsu's timesheet logs working hours, the animation X-sheet has the same name.
+アセット, フレーム and タスクタイプ stay, and so does タイムシート: Kitsu's timesheet logs working hours, the animation X-sheet has the same name.
 
 - Keep **only** the keys whose wording differs from `ja.json`, with the same `|` segments and `{placeholders}`.
 - A term left in a katakana compound stays (スナップショット keeps ショット).
